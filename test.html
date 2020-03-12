@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>斐波那契数列</title>
+    </head>
+    <body>
+        <p>Q: 在数学上 注明的斐波那契数列以递归的方法来定义:</p>
+        <p>F[0] = 0</p>
+        <p>F[1] = 1</p>
+        <p>F[n] = F[n-1] + F[n-2]  (n >= 2)</p>
+
+        <p>1.试算出F[100]的准确数值,输出准确数值</p>
+        <p>2.请问斐波那契数列中, 第一个有1000位数字的是第几项?</p>
+        <p>3.试算出第10亿项除以1000000007</p>
+        <p>4.试算出第10亿项除以1000000007</p>
+
+        <script>
+            const arr = [0, 1]
+            function calcFibonacciSequence(index) {
+                if (index < arr.length) {
+                    return arr[index]
+                }
+                arr[index] = calcFibonacciSequence(index-1) + calcFibonacciSequence(index-2)
+                        console.log(index, arr[index])
+                return arr[index]
+            }
+            
+            window.onload = function (){
+                calcFibonacciSequence(100)
+                for(let i = 101; i < Math.pow(10, 4); i ++ ) {
+                    let res = calcFibonacciSequence(i)
+                    if ((res + '').length >= 1000) {
+                        console.log(i, res)
+                        break
+                    } 
+                }
+            }
+        </script>
+    </body>
+</html>
